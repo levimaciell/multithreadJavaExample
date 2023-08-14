@@ -9,10 +9,10 @@ public class verificaNumerosPrimos {
 
             List<Thread> threads = intList.stream().map(x -> (Runnable) () -> {
                 if(verificarPrimo(x)){
-                    System.out.println("O número " + x + " é par!");
+                    System.out.println("O número " + x + " é primo!");
                 }
                 else{
-                    System.out.println("O número " + x + " é impar!");
+                    System.out.println("O número " + x + " não é primo!");
                 }
             }).toList().stream().map(Thread::new).toList();
 
@@ -33,7 +33,16 @@ public class verificaNumerosPrimos {
      *
      */
     public static boolean verificarPrimo(int num){
-        return num % 2 == 0;
+        double numDouble = (double) num;
+        int raiz = (int) Math.floor(Math.sqrt(numDouble));
+
+        for(int i = 1; i < raiz; i++){
+            if(num % i == 0){
+                return false;
+            }
+        }
+        
+        return true;
     }
 
 }
