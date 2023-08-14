@@ -29,19 +29,18 @@ public class verificaNumerosPrimos {
     /**
      *
      * @param num
-     * @return true if num % 2 == 0, false if num % 2 != 0
+     * @return false if num % 2 == 0, true if num % 2 != 0
      *
      */
     public static boolean verificarPrimo(int num){
-        double numDouble = (double) num;
-        int raiz = (int) Math.floor(Math.sqrt(numDouble));
+        double raiz = Math.sqrt(num);
 
-        for(int i = 1; i < raiz; i++){
+        for(int i = 2; i <= raiz; i++){
             if(num % i == 0){
                 return false;
             }
         }
-        
+
         return true;
     }
 
